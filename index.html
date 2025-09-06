@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APAC Ethanol Market Intelligence | Trafigura</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <h1>APAC Ethanol Market Intelligence</h1>
+                    <p class="subtitle">Professional Trading Intelligence</p>
+                </div>
+                <div class="header-stats">
+                    <div class="stat-item">
+                        <div class="stat-label">Market Status</div>
+                        <div class="stat-value live">LIVE</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Last Update</div>
+                        <div class="stat-value">Sep 06, 2025 14:00 IST</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Tab Navigation -->
+        <nav class="tab-nav">
+            <button class="tab-btn active" data-tab="market-overview">Market Overview</button>
+            <button class="tab-btn" data-tab="supply-demand">Supply-Demand Analysis</button>
+            <button class="tab-btn" data-tab="trade-flows">Trade Flows & Arbitrage</button>
+            <button class="tab-btn" data-tab="india-scenario">India Policy Scenario</button>
+            <button class="tab-btn" data-tab="global-pricing">Global Pricing Analytics</button>
+            <button class="tab-btn" data-tab="apac-countries">APAC Country Deep-dive</button>
+        </nav>
+
+        <!-- Tab Content Container -->
+        <div class="tab-content">
+            <!-- Market Overview Tab -->
+            <div class="tab-panel active" id="market-overview">
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-label">APAC Market Share</div>
+                        <div class="metric-value">27.6%</div>
+                        <div class="metric-subtitle">of global demand</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Total APAC Demand 2024</div>
+                        <div class="metric-value">25.2M</div>
+                        <div class="metric-subtitle">tonnes</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Supply Gap</div>
+                        <div class="metric-value">11.4M</div>
+                        <div class="metric-subtitle">tonnes (45.3% deficit)</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-label">Growth Rate 2024-2030</div>
+                        <div class="metric-value">24.1%</div>
+                        <div class="metric-subtitle">4.0% CAGR</div>
+                    </div>
+                </div>
+
+                <div class="charts-grid">
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>APAC Capacity Breakdown 2024</h3>
+                        </div>
+                        <div class="chart-container" style="position: relative; height: 300px;">
+                            <canvas id="capacity-breakdown-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>APAC Demand Forecast (2024-2030)</h3>
+                        </div>
+                        <div class="chart-container" style="position: relative; height: 300px;">
+                            <canvas id="demand-forecast-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Supply-Demand Analysis Tab -->
+            <div class="tab-panel" id="supply-demand">
+                <div class="chart-card full-width">
+                    <div class="chart-header">
+                        <h3>Regional Capacity vs Demand Analysis</h3>
+                    </div>
+                    <div class="chart-container" style="position: relative; height: 400px;">
+                        <canvas id="capacity-demand-chart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="supply-gap-cards">
+                    <div class="gap-card deficit">
+                        <div class="country">India</div>
+                        <div class="gap-value">-1.9M MT</div>
+                        <div class="gap-percentage">23% deficit</div>
+                    </div>
+                    <div class="gap-card deficit">
+                        <div class="country">China</div>
+                        <div class="gap-value">-3.3M MT</div>
+                        <div class="gap-percentage">33% deficit</div>
+                    </div>
+                    <div class="gap-card deficit">
+                        <div class="country">Southeast Asia</div>
+                        <div class="gap-value">-6.2M MT</div>
+                        <div class="gap-percentage">93% deficit</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trade Flows & Arbitrage Tab (Enhanced) -->
+            <div class="tab-panel" id="trade-flows">
+                <div class="price-heatmap-container">
+                    <div class="chart-header">
+                        <h3>Global Pricing Heat Map (USD/MT)</h3>
+                    </div>
+                    <div class="price-grid">
+                        <div class="price-item low">
+                            <div class="country-flag">🇺🇸</div>
+                            <div class="country-name">USA FOB Texas</div>
+                            <div class="price-value">$615.56</div>
+                        </div>
+                        <div class="price-item medium">
+                            <div class="country-flag">🇨🇳</div>
+                            <div class="country-name">China Ex-Shanghai</div>
+                            <div class="price-value">$651.52</div>
+                        </div>
+                        <div class="price-item medium">
+                            <div class="country-flag">🇩🇪</div>
+                            <div class="country-name">Germany CFR Hamburg</div>
+                            <div class="price-value">$663.00</div>
+                        </div>
+                        <div class="price-item medium">
+                            <div class="country-flag">🇰🇷</div>
+                            <div class="country-name">South Korea CFR</div>
+                            <div class="price-value">$680.77</div>
+                        </div>
+                        <div class="price-item medium">
+                            <div class="country-flag">🇳🇱</div>
+                            <div class="country-name">Netherlands Rotterdam</div>
+                            <div class="price-value">$681.39</div>
+                        </div>
+                        <div class="price-item high">
+                            <div class="country-flag">🇵🇭</div>
+                            <div class="country-name">Philippines CIF Manila</div>
+                            <div class="price-value">$703.82</div>
+                        </div>
+                        <div class="price-item high">
+                            <div class="country-flag">🇧🇷</div>
+                            <div class="country-name">Brazil FOB Santos</div>
+                            <div class="price-value">$727.72</div>
+                        </div>
+                        <div class="price-item highest">
+                            <div class="country-flag">🇮🇳</div>
+                            <div class="country-name">India Ex-Delhi NCR</div>
+                            <div class="price-value">$984.47</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="charts-grid">
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>Monthly Price Trends (Jan-Sep 2025)</h3>
+                        </div>
+                        <div class="chart-container" style="position: relative; height: 300px;">
+                            <canvas id="price-trends-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>Global Export Sources 2024</h3>
+                        </div>
+                        <div class="chart-container" style="position: relative; height: 300px;">
+                            <canvas id="exports-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="freight-container">
+                    <div class="chart-header">
+                        <h3>Freight Cost Differentials</h3>
+                    </div>
+                    <div class="freight-grid">
+                        <div class="freight-card">
+                            <div class="freight-route">US Gulf → APAC</div>
+                            <div class="freight-cost">6.2¢/liter</div>
+                            <div class="freight-desc">Sea freight costs</div>
+                        </div>
+                        <div class="freight-card">
+                            <div class="freight-route">Brazil → APAC</div>
+                            <div class="freight-cost">6.9¢/liter</div>
+                            <div class="freight-desc">Sea freight costs</div>
+                        </div>
+                        <div class="freight-card highlight">
+                            <div class="freight-route">US → India Delivered</div>
+                            <div class="freight-cost">$706.55/MT</div>
+                            <div class="freight-desc">Including freight</div>
+                        </div>
+                        <div class="freight-card highlight">
+                            <div class="freight-route">Brazil → India Delivered</div>
+                            <div class="freight-cost">$770.90/MT</div>
+                            <div class="freight-desc">Including freight</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- India Policy Scenario Tab (CRITICAL - MAINTAIN EXISTING + ENHANCED) -->
+            <div class="tab-panel" id="india-scenario">
+                <!-- EXISTING Scenario Comparison - MAINTAINED -->
+                <div class="scenario-comparison">
+                    <div class="scenario-card current">
+                        <div class="scenario-title">Current E20 Mandate</div>
+                        <div class="scenario-stats">
+                            <div class="stat">
+                                <div class="stat-label">Total Demand</div>
+                                <div class="stat-value">10.7M MT</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">Fuel Demand</div>
+                                <div class="stat-value">8.0M MT</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">Other Sectors</div>
+                                <div class="stat-value">2.6M MT</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="scenario-card proposed">
+                        <div class="scenario-title">Proposed E15 Mandate</div>
+                        <div class="scenario-stats">
+                            <div class="stat">
+                                <div class="stat-label">Total Demand</div>
+                                <div class="stat-value">8.6M MT</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">Fuel Demand</div>
+                                <div class="stat-value">6.0M MT</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">Other Sectors</div>
+                                <div class="stat-value">2.6M MT</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="scenario-card impact">
+                        <div class="scenario-title">Impact Analysis</div>
+                        <div class="scenario-stats">
+                            <div class="stat">
+                                <div class="stat-label">Demand Reduction</div>
+                                <div class="stat-value negative">-2.0M MT</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">Percentage Reduction</div>
+                                <div class="stat-value negative">-18.8%</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-label">Import Savings</div>
+                                <div class="stat-value positive">$1.2B</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CRITICAL: Interactive Blending Slider (10-30%) - MUST MAINTAIN -->
+                <div class="slider-container">
+                    <div class="chart-header">
+                        <h3>Blending Mandate Impact Simulator</h3>
+                    </div>
+                    <div class="slider-section">
+                        <div class="slider-label">
+                            Blending Percentage: <span id="blending-value">15</span>%
+                        </div>
+                        <input type="range" id="blending-slider" min="10" max="30" value="15" class="slider">
+                        <div class="slider-marks">
+                            <span>10%</span>
+                            <span>20%</span>
+                            <span>30%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="simulation-results">
+                        <div class="result-item">
+                            <div class="result-label">Total Ethanol Demand</div>
+                            <div class="result-value" id="total-demand">8.6M MT</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Import Requirements</div>
+                            <div class="result-value" id="import-req">2.0M MT</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Cost Implications</div>
+                            <div class="result-value" id="cost-impact">$1.2B savings</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Self-Sufficiency</div>
+                            <div class="result-value" id="self-sufficiency">76%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NEW: Cross-sector Competition Analysis -->
+                <div class="cross-sector-container">
+                    <div class="chart-header">
+                        <h3>Cross-sector Competition Analysis</h3>
+                    </div>
+                    <div class="sector-pricing-grid">
+                        <div class="sector-card fuel">
+                            <div class="sector-title">Fuel Ethanol (Government Rates)</div>
+                            <div class="pricing-list">
+                                <div class="pricing-item">
+                                    <span>Sugarcane Juice</span>
+                                    <span>₹65.61/L</span>
+                                </div>
+                                <div class="pricing-item">
+                                    <span>B-Heavy Molasses</span>
+                                    <span>₹60.73/L</span>
+                                </div>
+                                <div class="pricing-item">
+                                    <span>C-Heavy Molasses</span>
+                                    <span>₹57.97/L</span>
+                                </div>
+                                <div class="pricing-item">
+                                    <span>Maize</span>
+                                    <span>₹71.8/L</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sector-card industrial">
+                            <div class="sector-title">Industrial Alcohol</div>
+                            <div class="pricing-range">₹34-38/L</div>
+                            <div class="pricing-states">Across UP & Maharashtra</div>
+                        </div>
+                        <div class="sector-card beverage">
+                            <div class="sector-title">Beverage Sector</div>
+                            <div class="pricing-range">Premium Pricing</div>
+                            <div class="pricing-states">Higher-grade ethanol</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NEW: Gasoline Impact Analysis -->
+                <div class="gasoline-impact-container">
+                    <div class="chart-header">
+                        <h3>Gasoline Impact Analysis</h3>
+                    </div>
+                    <div class="impact-metrics-grid">
+                        <div class="impact-metric">
+                            <div class="metric-icon">⛽</div>
+                            <div class="metric-data">
+                                <div class="metric-value">233 MT</div>
+                                <div class="metric-label">Total Petroleum Consumption</div>
+                                <div class="metric-detail">16% gasoline share</div>
+                            </div>
+                        </div>
+                        <div class="impact-metric">
+                            <div class="metric-icon">📊</div>
+                            <div class="metric-data">
+                                <div class="metric-value">88.2%</div>
+                                <div class="metric-label">Crude Import Dependency</div>
+                                <div class="metric-detail">Up from 87.7% previous year</div>
+                            </div>
+                        </div>
+                        <div class="impact-metric">
+                            <div class="metric-icon">💰</div>
+                            <div class="metric-data">
+                                <div class="metric-value">₹3.5-5.1/L</div>
+                                <div class="metric-label">E20 Price Reduction</div>
+                                <div class="metric-detail">Petrol cost savings</div>
+                            </div>
+                        </div>
+                        <div class="impact-metric">
+                            <div class="metric-icon">💸</div>
+                            <div class="metric-data">
+                                <div class="metric-value">₹43,000 Cr</div>
+                                <div class="metric-label">Annual Forex Savings</div>
+                                <div class="metric-detail">At 20% blending</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EXISTING Economic Impact Chart - MAINTAINED -->
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3>Economic Impact Comparison</h3>
+                    </div>
+                    <div class="chart-container" style="position: relative; height: 350px;">
+                        <canvas id="economic-impact-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Global Pricing Analytics Tab -->
+            <div class="tab-panel" id="global-pricing">
+                <div class="pricing-dashboard">
+                    <div class="chart-header">
+                        <h3>Real-time Pricing Dashboard</h3>
+                    </div>
+                    
+                    <div class="price-overview-grid">
+                        <div class="price-overview-card">
+                            <div class="price-header">
+                                <span class="country-name">USA (FOB Texas)</span>
+                                <span class="price-badge low">Export Advantage</span>
+                            </div>
+                            <div class="price-main">$615.56/MT</div>
+                            <div class="price-details">
+                                <div>Capacity: 67.8M MT</div>
+                                <div>Supply Gap: +2.5M MT</div>
+                            </div>
+                        </div>
+                        
+                        <div class="price-overview-card">
+                            <div class="price-header">
+                                <span class="country-name">Brazil (FOB Santos)</span>
+                                <span class="price-badge high">Feedstock-driven</span>
+                            </div>
+                            <div class="price-main">$727.72/MT</div>
+                            <div class="price-details">
+                                <div>Capacity: 43.3M MT</div>
+                                <div>Supply Gap: -2.6M MT</div>
+                            </div>
+                        </div>
+                        
+                        <div class="price-overview-card">
+                            <div class="price-header">
+                                <span class="country-name">India (Ex-Delhi NCR)</span>
+                                <span class="price-badge highest">Policy Support</span>
+                            </div>
+                            <div class="price-main">$984.47/MT</div>
+                            <div class="price-details">
+                                <div>YoY Growth: +12.47%</div>
+                                <div>High domestic demand</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chart-card full-width">
+                        <div class="chart-header">
+                            <h3>Global Price Trends & Arbitrage Analysis</h3>
+                        </div>
+                        <div class="chart-container" style="position: relative; height: 400px;">
+                            <canvas id="global-price-trends-chart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="arbitrage-calculator">
+                        <div class="chart-header">
+                            <h3>Arbitrage Calculator</h3>
+                        </div>
+                        <div class="calculator-grid">
+                            <div class="calc-input-group">
+                                <label for="origin-select">Origin:</label>
+                                <select id="origin-select" class="form-control">
+                                    <option value="615.56">USA FOB ($615.56)</option>
+                                    <option value="727.72">Brazil FOB ($727.72)</option>
+                                    <option value="651.52">China ($651.52)</option>
+                                </select>
+                            </div>
+                            <div class="calc-input-group">
+                                <label for="destination-select">Destination:</label>
+                                <select id="destination-select" class="form-control">
+                                    <option value="680.77">South Korea ($680.77)</option>
+                                    <option value="984.47">India ($984.47)</option>
+                                    <option value="703.82">Philippines ($703.82)</option>
+                                </select>
+                            </div>
+                            <div class="calc-result">
+                                <div class="calc-label">Arbitrage Opportunity:</div>
+                                <div class="calc-value" id="arbitrage-result">$65.21/MT</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- APAC Country Deep-dive Tab -->
+            <div class="tab-panel" id="apac-countries">
+                <div class="country-selector">
+                    <div class="chart-header">
+                        <h3>APAC Country Analysis</h3>
+                    </div>
+                    <div class="country-tabs">
+                        <button class="country-tab active" data-country="japan">Japan</button>
+                        <button class="country-tab" data-country="south-korea">South Korea</button>
+                        <button class="country-tab" data-country="indonesia">Indonesia</button>
+                        <button class="country-tab" data-country="philippines">Philippines</button>
+                        <button class="country-tab" data-country="thailand">Thailand</button>
+                    </div>
+                </div>
+
+                <div class="country-analysis" id="country-content">
+                    <div class="country-detail active" id="japan-detail">
+                        <div class="country-header">
+                            <h3>🇯🇵 Japan Market Analysis</h3>
+                        </div>
+                        <div class="country-stats-grid">
+                            <div class="country-stat">
+                                <div class="stat-label">Import Dependency</div>
+                                <div class="stat-value">High</div>
+                            </div>
+                            <div class="country-stat">
+                                <div class="stat-label">Import Tariff</div>
+                                <div class="stat-value">10%</div>
+                            </div>
+                            <div class="country-stat">
+                                <div class="stat-label">Market Price</div>
+                                <div class="stat-value">$680.77/MT</div>
+                            </div>
+                        </div>
+                        <div class="country-insight">
+                            <strong>Key Insight:</strong> Well-developed import market with sophisticated infrastructure. Primarily relies on imports due to limited domestic agricultural resources.
+                        </div>
+                    </div>
+
+                    <div class="country-detail" id="south-korea-detail">
+                        <div class="country-header">
+                            <h3>🇰🇷 South Korea Market Analysis</h3>
+                        </div>
+                        <div class="country-stats-grid">
+                            <div class="country-stat">
+                                <div class="stat-label">2023 Imports</div>
+                                <div class="stat-value">178.8 MT</div>
+                            </div>
+                            <div class="country-stat">
+                                <div class="stat-label">YoY Change</div>
+                                <div class="stat-value negative">-23.3%</div>
+                            </div>
+                            <div class="country-stat">
+                                <div class="stat-label">2024 Avg Monthly</div>
+                                <div class="stat-value">11.4 MT</div>
+                            </div>
+                        </div>
+                        <div class="country-insight">
+                            <strong>Key Insight:</strong> Declining import volumes. Import-dependent market with blending-driven demand patterns.
+                        </div>
+                    </div>
+
+                    <div class="country-detail" id="indonesia-detail">
+                        <div class="country-header">
+                            <h3>🇮🇩 Indonesia Market Analysis</h3>
+                        </div>
+                        <div class="country-stats-grid">
+                            <div class="country-stat">
+                                <div class="stat-label">Current Capacity</div>
+                                <div class="stat-value">350M L/yr</div>
+                            </div>
+                            <div class="country-stat">
+                                <div class="stat-label">Current Mandate</div>
+                                <div class="stat-value">5%</div>
+                            </div>
+                            <div class="country-stat">
+                                <div class="stat-label">Target by 2025</div>
+                                <div class="stat-value">20%</div>
+                            </div>
+                        </div>
+                        <div class="country-insight">
+                            <strong>Key Insight:</strong> Rapid capacity expansion planned. Eight active producers with exports mainly to Philippines (93% of exports).
+                        </div>
+                    </div>
+
+                    <div class="country-detail" id="philippines-detail">
+                        <div class="country-header">
+                            <h3>🇵🇭 Philippines Market Analysis</h3>
+                        </div>
+                        <div class="country-stats-grid">
+                            <div class="country-stat">
+                                <div class="stat-label">2025 Consumption</div>
+                                <div class="stat-value">840M L</div>
+                            </div>
+                            <div class="country-stat">
+                                <div class="stat-label">Mandatory Blending</div>
+                                <div class="stat-value">10%</div>
+                            </div>
+                            <div class="country-stat">
+                                <div class="stat-label">Expected Imports</div>
+                                <div class="stat-value">450M L</div>
+                            </div>
+                        </div>
+                        <div class="country-insight">
+                            <strong>Key Insight:</strong> Growing import market. Voluntary E20 program approved in 2024, indicating policy support expansion.
+                        </div>
+                    </div>
+
+                    <div class="country-detail" id="thailand-detail">
+                        <div class="country-header">
+                            <h3>🇹🇭 Thailand Market Analysis</h3>
+                        </div>
+                        <div class="country-stats-grid">
+                            <div class="country-stat">
+                                <div class="stat-label">Price Reduction Potential</div>
+                                <div class="stat-value">17%</div>
+                            </div>
+                            <div class="country-stat">
+                                <div class="stat-label">Blending Target</div>
+                                <div class="stat-value">National Policy</div>
+                            </div>
+                            <div class="country-stat">
+                                <div class="stat-label">Policy Support</div>
+                                <div class="stat-value">Strong</div>
+                            </div>
+                        </div>
+                        <div class="country-insight">
+                            <strong>Key Insight:</strong> Strong policy support with significant price reduction potential from ethanol blending as part of national biofuel policy.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="policy-comparison-container">
+                    <div class="chart-header">
+                        <h3>Blending Mandates Comparison</h3>
+                    </div>
+                    <div class="chart-container" style="position: relative; height: 350px;">
+                        <canvas id="mandates-comparison-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
